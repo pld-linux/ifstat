@@ -1,51 +1,54 @@
-# Time-stamp: <01/12/25 14:04:41 ifstat.spec wbosse@berlin.snafu.de>
-# $Id: ifstat.spec,v 1.1 2003-04-22 12:15:42 kloczek Exp $
-
-Name: ifstat
-Summary: InterFace STATistics
-Version: 1.0
-Release: 1
-Group: Applications
-Copyright: GPL
-Vendor: Gaël Roualland <gael.roualland@dial.oleane.com>
-URL: http://gael.roualland.free.fr/ifstat/
-Packager: Werner Bosse <wbosse@berlin.snafu.de>
-Source0: %{name}-%{version}.tar.gz
-BuildRoot: %{_tmppath}/%{name}-%{version}-buildroot
-Requires: ucd-snmp
-BuildPrereq: ucd-snmp-devel
+Summary:	InterFace STATistics
+Summary(pl):	Program do zbieranai statystyk ruchu na interfejsach sieciowych
+Name:		ifstat
+Version:	1.0
+Release:	1
+License:	GPL
+Group:		Applications
+Vendor:		Gaël Roualland <gael.roualland@dial.oleane.com>
+Source0:	http://gael.roualland.free.fr/ifstat/%{name}-%{version}.tar.gz
+Patch0:		%{name}-DESTDIR.patch
+URL:		http://gael.roualland.free.fr/ifstat/
+BuildRequires:	autoconf
+BuildRequires:	:	automake
+BuildRequires:	ucd-snmp-devel
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
-ifstat(1) is a little tool to report interface activity like vmstat/iostat do.
-In addition, ifstat can poll remote hosts through SNMP if you have the ucd-snmp
-library. It will also be used for localhost if no other known method works (You
-need to have snmpd running for this though).
+ifstat(1) is a little tool to report interface activity like
+vmstat/iostat do. In addition, ifstat can poll remote hosts through
+SNMP. It will also be used for localhost if no other known method
+works (You need to have SNMP agent running for this though).
 
-See also %{_docdir}/%{name}-%{version}
-
-%changelog
-* %(echo `LC_ALL=C date '+%a %b %d %Y'`) %(whoami)@%(hostname)
-- built %{version} on %(cat /etc/*-release | head -1)
-
-* Tue Dec 25 2001 Werner Bosse <wbosse@berlin.snafu.de>
-- initialization of spec file.
+%description -l pl
+ifstat(1) jest ma³ym narzêdziem które s³u¿y do pobierania informacji o
+ruchu na interfejsach sieciowych podobnie do narzêdzi vmstat/iostat.
+Dodatkowo za pomoc± ifstat poprzez protokó³ SNMP mo¿na tak¿e pobieraæ
+informacje z zdalnie z innych komputerów o ile jest tam pracuj±cy SNMP
+agent.
 
 %prep
 %setup -q
-./configure --prefix=%{_prefix} --enable-optim
+%patch0 -p1
 
 %build
-make 
+%{__aclocal}
+%{__autoconf}
+%configure \
+	--with-proc=/proc/net/dev
+%{__make}
 
 %install
 rm -rf $RPM_BUILD_ROOT
-make prefix=$RPM_BUILD_ROOT%{_prefix} mandir=$RPM_BUILD_ROOT%{_mandir} install
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
 %files
-%defattr(-,root,root)
-%doc README INSTALL TODO COPYING HISTORY
-%{_bindir}/*
+%defattr(644,root,root,755)
+%doc README TODO HISTORY
+%attr(755,root,root) %{_bindir}/*
 %{_mandir}/man*/*
