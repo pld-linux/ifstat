@@ -1,5 +1,5 @@
 Summary:	InterFace STATistics
-Summary(pl):	Program do zbieranai statystyk ruchu na interfejsach sieciowych
+Summary(pl):	Program do zbierania statystyk ruchu na interfejsach sieciowych
 Name:		ifstat
 Version:	1.0
 Release:	1
@@ -11,7 +11,7 @@ Patch0:		%{name}-DESTDIR.patch
 URL:		http://gael.roualland.free.fr/ifstat/
 BuildRequires:	autoconf
 BuildRequires:	automake
-BuildRequires:	ucd-snmp-devel
+BuildRequires:	net-snmp-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -21,11 +21,11 @@ SNMP. It will also be used for localhost if no other known method
 works (You need to have SNMP agent running for this though).
 
 %description -l pl
-ifstat(1) jest ma³ym narzêdziem które s³u¿y do pobierania informacji o
-ruchu na interfejsach sieciowych podobnie do narzêdzi vmstat/iostat.
+ifstat(1) jest ma³ym narzêdziem, które s³u¿y do pobierania informacji
+o ruchu na interfejsach sieciowych podobnie do narzêdzi vmstat/iostat.
 Dodatkowo za pomoc± ifstat poprzez protokó³ SNMP mo¿na tak¿e pobieraæ
-informacje z zdalnie z innych komputerów o ile jest tam pracuj±cy SNMP
-agent.
+informacje zdalnie z innych komputerów, o ile jest tam pracuj±cy agent
+SNMP.
 
 %prep
 %setup -q
