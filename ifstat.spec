@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications
 Vendor:		Gaël Roualland <gael.roualland@dial.oleane.com>
 Source0:	http://gael.roualland.free.fr/ifstat/%{name}-%{version}.tar.gz
+# Source0-md5:	8759bf0debe80e55e8922be10e51e981
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://gael.roualland.free.fr/ifstat/
 BuildRequires:	autoconf
