@@ -10,7 +10,7 @@ Source0:	http://gael.roualland.free.fr/ifstat/%{name}-%{version}.tar.gz
 Patch0:		%{name}-DESTDIR.patch
 URL:		http://gael.roualland.free.fr/ifstat/
 BuildRequires:	autoconf
-BuildRequires:	:	automake
+BuildRequires:	automake
 BuildRequires:	ucd-snmp-devel
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
