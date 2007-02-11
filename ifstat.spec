@@ -1,11 +1,11 @@
 Summary:	InterFace STATistics
-Summary(pl):	Program do zbierania statystyk ruchu na interfejsach sieciowych
+Summary(pl.UTF-8):   Program do zbierania statystyk ruchu na interfejsach sieciowych
 Name:		ifstat
 Version:	1.1
 Release:	1
 License:	GPL
 Group:		Applications
-Vendor:		Gaël Roualland <gael.roualland@dial.oleane.com>
+Vendor:		GaÃ«l Roualland <gael.roualland@dial.oleane.com>
 Source0:	http://gael.roualland.free.fr/ifstat/%{name}-%{version}.tar.gz
 # Source0-md5:	b655642c33a626cfe976792fbcd9b6e1
 Patch0:		%{name}-DESTDIR.patch
@@ -21,11 +21,11 @@ vmstat/iostat do. In addition, ifstat can poll remote hosts through
 SNMP. It will also be used for localhost if no other known method
 works (You need to have SNMP agent running for this though).
 
-%description -l pl
-ifstat(1) jest ma³ym narzêdziem, które s³u¿y do pobierania informacji
-o ruchu na interfejsach sieciowych podobnie do narzêdzi vmstat/iostat.
-Dodatkowo za pomoc± ifstat poprzez protokó³ SNMP mo¿na tak¿e pobieraæ
-informacje zdalnie z innych komputerów, o ile jest tam pracuj±cy agent
+%description -l pl.UTF-8
+ifstat(1) jest maÅ‚ym narzÄ™dziem, ktÃ³re sÅ‚uÅ¼y do pobierania informacji
+o ruchu na interfejsach sieciowych podobnie do narzÄ™dzi vmstat/iostat.
+Dodatkowo za pomocÄ… ifstat poprzez protokÃ³Å‚ SNMP moÅ¼na takÅ¼e pobieraÄ‡
+informacje zdalnie z innych komputerÃ³w, o ile jest tam pracujÄ…cy agent
 SNMP.
 
 %prep
