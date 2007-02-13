@@ -1,5 +1,5 @@
 Summary:	InterFace STATistics
-Summary(pl.UTF-8):   Program do zbierania statystyk ruchu na interfejsach sieciowych
+Summary(pl.UTF-8):	Program do zbierania statystyk ruchu na interfejsach sieciowych
 Name:		ifstat
 Version:	1.1
 Release:	1
