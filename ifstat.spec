@@ -2,10 +2,9 @@ Summary:	InterFace STATistics
 Summary(pl.UTF-8):	Program do zbierania statystyk ruchu na interfejsach sieciowych
 Name:		ifstat
 Version:	1.1
-Release:	1
+Release:	2
 License:	GPL
 Group:		Applications
-Vendor:		Gaël Roualland <gael.roualland@dial.oleane.com>
 Source0:	http://gael.roualland.free.fr/ifstat/%{name}-%{version}.tar.gz
 # Source0-md5:	b655642c33a626cfe976792fbcd9b6e1
 Patch0:		%{name}-DESTDIR.patch
